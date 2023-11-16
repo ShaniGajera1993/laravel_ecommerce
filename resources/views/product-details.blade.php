@@ -19,25 +19,25 @@
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <div>
-              <img src="{{ asset('images/product-1-370x270.jpg') }}" alt="" class="img-fluid wc-image">
+              <img src="{{ asset('images/product-1.1.jpg') }}" alt="" class="img-fluid wc-image">
             </div>
             <br>
             <div class="row">
               <div class="col-sm-4 col-xs-6">
                 <div>
-                  <img src="{{ asset('images/product-1-370x270.jpg') }}" alt="" class="img-fluid">
+                  <img src="{{ asset('images/product-1.1.jpg') }}" alt="" class="img-fluid">
                 </div>
                 <br>
               </div>
               <div class="col-sm-4 col-xs-6">
                 <div>
-                  <img src="{{ asset('images/product-2-370x270.jpg') }}" alt="" class="img-fluid">
+                  <img src="{{ asset('images/product-1.2.jpg') }}" alt="" class="img-fluid">
                 </div>
                 <br>
               </div>
               <div class="col-sm-4 col-xs-6">
                 <div>
-                  <img src="{{ asset('images/product-3-370x270.jpg') }}" alt="" class="img-fluid">
+                  <img src="{{ asset('images/product-1.3.jpg') }}" alt="" class="img-fluid">
                 </div>
                 <br>
               </div>
@@ -106,7 +106,7 @@
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="product-details"><img src="{{ asset('images/product-1-370x270.jpg') }}" alt=""></a>
+              <a href="product-details"><img src="{{ asset('images/product-2.1.jpg') }}" alt=""></a>
               <div class="down-content">
                 <a href="product-details"><h4>Omega bicycle</h4></a>
                 <h6><small><del>$999.00 </del></small> $779.00</h6>
@@ -116,7 +116,7 @@
 
           <div class="col-md-4">
             <div class="product-item">
-              <a href="product-details"><img src="{{ asset('images/product-2-370x270.jpg') }}" alt=""></a>
+              <a href="product-details"><img src="{{ asset('images/product-3.1.jpg') }}" alt=""></a>
               <div class="down-content">
                 <a href="product-details"><h4>Nike Revolution 5 Shoes</h4></a>
                 <h6><small><del>$99.00</del></small>  $79.00</h6>
@@ -126,7 +126,7 @@
 
           <div class="col-md-4">
             <div class="product-item">
-              <a href="product-details"><img src="{{ asset('images/product-3-370x270.jpg') }}" alt=""></a>
+              <a href="product-details"><img src="{{ asset('images/product-4.1.jpg') }}" alt=""></a>
               <div class="down-content">
                 <a href="product-details"><h4>Treadmill Orion Sprint</h4></a>
                 <h6><small><del>$1999.00</del></small>   $1779.00</h6>

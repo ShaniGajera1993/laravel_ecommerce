@@ -17,27 +17,29 @@
     <div class="products">
       <div class="container">
         <div class="row">
+
+
           <div class="col-md-4 col-xs-12">
             <div>
-              <img src="{{ asset('images/product-1.1.jpg') }}" alt="" class="img-fluid wc-image">
+              <img src="{{ asset('images/'. $products -> image) }}" alt="" class="img-fluid wc-image">
             </div>
             <br>
             <div class="row">
               <div class="col-sm-4 col-xs-6">
                 <div>
-                  <img src="{{ asset('images/product-1.1.jpg') }}" alt="" class="img-fluid">
+                  <img src="{{ asset('images/'. $products -> image) }}" alt="" class="img-fluid">
                 </div>
                 <br>
               </div>
               <div class="col-sm-4 col-xs-6">
                 <div>
-                  <img src="{{ asset('images/product-1.2.jpg') }}" alt="" class="img-fluid">
+                  <img src="{{ asset('images/'. $products -> image1) }}" alt="" class="img-fluid">
                 </div>
                 <br>
               </div>
               <div class="col-sm-4 col-xs-6">
                 <div>
-                  <img src="{{ asset('images/product-1.3.jpg') }}" alt="" class="img-fluid">
+                  <img src="{{ asset('images/'. $products -> image2) }}" alt="" class="img-fluid">
                 </div>
                 <br>
               </div>
@@ -46,33 +48,27 @@
 
           <div class="col-md-8 col-xs-12">
             <form action="#" method="post" class="form">
-              <h2>Lorem ipsum dolor sit amet.</h2>
+              <h2>{{ $products -> name }}</h2>
 
               <br>
 
               <p class="lead">
-                <small><del> $999.00</del></small><strong class="text-primary">$779.00</strong>
+                @if($products -> sale_price)
+                <small><del> ${{ $products -> price}}</del></small><strong class="text-primary">${{ $products -> sale_price}}</strong>
+                @else
+                ${{ $products -> price}}
+                @endif
               </p>
 
               <br>
 
               <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ratione molestias maxime odio. Provident ratione vero, corrupti, optio laborum aut!
+                {{ $products -> description}}
               </p>
 
               <br> 
 
               <div class="row">
-                <div class="col-sm-4">
-                  <label class="control-label">Extra 1</label>
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option value="0">18 gears</option>
-                      <option value="1">21 gears</option>
-                      <option value="2">27 gears</option>
-                    </select>
-                  </div>
-                </div>
                 <div class="col-sm-8">
                   <label class="control-label">Quantity</label>
 
@@ -101,38 +97,28 @@
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Similar Products</h2>
-              <a href="products">view more <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="product-details"><img src="{{ asset('images/product-2.1.jpg') }}" alt=""></a>
-              <div class="down-content">
-                <a href="product-details"><h4>Omega bicycle</h4></a>
-                <h6><small><del>$999.00 </del></small> $779.00</h6>
-              </div>
+              <a href="/products">view more <i class="fa fa-angle-right"></i></a>
             </div>
           </div>
 
+          @foreach($similarProducts as $similarProduct)
           <div class="col-md-4">
             <div class="product-item">
-              <a href="product-details"><img src="{{ asset('images/product-3.1.jpg') }}" alt=""></a>
+              <a href="{{ route('product.details', ['id' => $similarProduct->id]) }}"><img src="{{ asset('images/' .$similarProduct -> image) }}" alt=""></a>
               <div class="down-content">
-                <a href="product-details"><h4>Nike Revolution 5 Shoes</h4></a>
-                <h6><small><del>$99.00</del></small>  $79.00</h6>
+                <a href="{{ route('product.details', ['id' => $similarProduct->id]) }}"><h4>{{ $similarProduct -> name }}</h4></a>
+                <h6>
+                  @if($similarProduct -> sale_price)
+                  <small><del>${{ $similarProduct -> price }} </del></small> ${{ $similarProduct -> sale_price }}
+                  @else
+                  ${{ $similarProduct -> price }}
+                  @endif
+                </h6>
               </div>
             </div>
           </div>
-
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="product-details"><img src="{{ asset('images/product-4.1.jpg') }}" alt=""></a>
-              <div class="down-content">
-                <a href="product-details"><h4>Treadmill Orion Sprint</h4></a>
-                <h6><small><del>$1999.00</del></small>   $1779.00</h6>
-              </div>
-            </div>
-          </div>
+          @endforeach
+  
         </div>
       </div>
     </div>

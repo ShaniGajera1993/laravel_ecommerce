@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [ProjectController::class,'index']);
 
-Route::get('/products', function () {
-    return view('products');
-});
+Route::get('/products', [ProjectController::class,'product']);
 
 Route::get('/about-us', function () {
     return view('about-us');
@@ -37,9 +34,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/product-details', function () {
-    return view('product-details');
-});
+Route::get('/product-details/{id}', [ProjectController::class,'productdetails'])->name('product.details');
 
 Route::get('/login', function () {
     return view('login');

@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-1-370x270.jpg') }}" alt=""></a>
+                    <a href="product-details"><img src="{{ asset('images/product-1.1.jpg') }}" alt=""></a>
                     <div class="down-content">
                         <a href="product-details">
                             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -53,7 +53,7 @@
 
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-2-370x270.jpg') }}" alt=""></a>
+                    <a href="product-details"><img src="{{ asset('images/product-2.1.jpg') }}" alt=""></a>
                     <div class="down-content">
                         <a href="product-details">
                             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -67,7 +67,7 @@
 
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-3-370x270.jpg') }}" alt=""></a>
+                    <a href="product-details"><img src="{{ asset('images/product-3.1.jpg') }}" alt=""></a>
                     <div class="down-content">
                         <a href="product-details">
                             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -81,7 +81,7 @@
 
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-4-370x270.jpg') }}" alt=""></a>
+                    <a href="product-details"><img src="{{ asset('images/product-4.1.jpg') }}" alt=""></a>
                     <div class="down-content">
                         <a href="product-details">
                             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -95,7 +95,7 @@
 
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-5-370x270.jpg') }}" alt=""></a>
+                    <a href="product-details"><img src="{{ asset('images/product-5.1.jpg') }}" alt=""></a>
                     <div class="down-content">
                         <a href="product-details">
                             <h4>Lorem ipsum dolor sit amet.</h4>
@@ -109,7 +109,7 @@
 
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-6-370x270.jpg') }}" alt=""></a>
+                    <a href="product-details"><img src="{{ asset('images/product-6.1.jpg') }}" alt=""></a>
                     <div class="down-content">
                         <a href="product-details">
                             <h4>Lorem ipsum dolor sit amet.</h4>

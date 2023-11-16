@@ -37,89 +37,28 @@
                     <a href="products">view more <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-1.1.jpg') }}" alt=""></a>
-                    <div class="down-content">
-                        <a href="product-details">
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-                        </a>
-                        <h6><small><del>$999.00 </del></small> $779.00</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta voluptas quia dolor fuga
-                            odit.</p>
-                    </div>
-                </div>
-            </div>
 
+            @foreach($products as $product)
             <div class="col-md-4">
                 <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-2.1.jpg') }}" alt=""></a>
+                    <a href="{{ route('product.details', ['id' => $product->id]) }}"><img src="{{ asset('images/' .$product -> image) }}" alt=""></a>
                     <div class="down-content">
-                        <a href="product-details">
-                            <h4>Lorem ipsum dolor sit amet.</h4>
+                        <a href="{{ route('product.details', ['id' => $product->id]) }}">
+                            <h4>{{ $product -> name}}</h4>
                         </a>
-                        <h6><small><del>$99.00</del></small> $79.00</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non beatae soluta, placeat vitae
-                            cum maxime culpa itaque minima.</p>
+                        <h6>
+                            @if($product -> sale_price)
+                            <small><del>${{ $product -> price }} </del></small> ${{ $product -> sale_price}}
+                            @else
+                            ${{ $product -> price }}
+                            @endif
+                        </h6>    
+                        <p>{{ $product -> description }}</p>
                     </div>
                 </div>
             </div>
+            @endforeach
 
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-3.1.jpg') }}" alt=""></a>
-                    <div class="down-content">
-                        <a href="product-details">
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-                        </a>
-                        <h6><small><del>$1999.00</del></small> $1779.00</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt nisi quia aspernatur,
-                            harum facere delectus saepe enim?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-4.1.jpg') }}" alt=""></a>
-                    <div class="down-content">
-                        <a href="product-details">
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-                        </a>
-                        <h6><small><del>$999.00 </del></small> $779.00</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta voluptas quia dolor fuga
-                            odit.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-5.1.jpg') }}" alt=""></a>
-                    <div class="down-content">
-                        <a href="product-details">
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-                        </a>
-                        <h6><small><del>$999.00 </del></small> $779.00</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta voluptas quia dolor fuga
-                            odit.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="product-details"><img src="{{ asset('images/product-6.1.jpg') }}" alt=""></a>
-                    <div class="down-content">
-                        <a href="product-details">
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-                        </a>
-                        <h6><small><del>$999.00 </del></small> $779.00</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta voluptas quia dolor fuga
-                            odit.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

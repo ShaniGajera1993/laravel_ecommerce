@@ -9,7 +9,7 @@ class ProjectController extends Controller
 {
     public function index(){
 
-        $product = DB::table("products")->get();
+        $product = DB::table("products")->limit(6)->get();
 
         return view("index",["products"=>$product]);
 

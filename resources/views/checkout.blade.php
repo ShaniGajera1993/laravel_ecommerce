@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>Lorem ipsum dolor sit amet</h4>
+              <h4>From cart to heart – complete your purchase now</h4>
               <h2>Checkout</h2>
             </div>
           </div>

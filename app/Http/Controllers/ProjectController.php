@@ -17,7 +17,7 @@ class ProjectController extends Controller
 
     public function product(){
 
-        $product = DB::table("products")->get();
+        $product = DB::table("products")->paginate(9);
 
         return view("products",["products"=>$product]);
         

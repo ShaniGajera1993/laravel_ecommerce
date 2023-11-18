@@ -68,6 +68,24 @@ a.filled-button:hover {
 	color: #fff;
 }
 
+button.filled-button {
+	background-color: #f33f3f;
+	color: #fff;
+	font-size: 14px;
+	text-transform: capitalize;
+	font-weight: 300;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: none;
+	display: inline-block;
+	transition: all 0.3s;
+}
+
+button.filled-button:hover {
+	background-color: #121212;
+	color: #fff;
+}
+
 .section-heading {
 	text-align: left;
 	margin-bottom: 60px;

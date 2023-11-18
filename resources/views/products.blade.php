@@ -17,6 +17,25 @@
 
 <div class="products">
   <div class="container">
+    <div class="row justify-content-end">
+      <div class="col-auto">
+        <div class="dropdown show">
+          <a class="filled-button dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Short By
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/newest">Newest</a>
+            <a class="dropdown-item" href="/lowest_price">Lowest Price</a>
+            <a class="dropdown-item" href="/highest_price">Highest Price</a>
+            <a class="dropdown-item" href="/men">Men</a>
+            <a class="dropdown-item" href="/women">Women</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
     <div class="row">
 
       @foreach($products as $product)

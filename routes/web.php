@@ -47,3 +47,13 @@ Route::get('/register', function () {
 Route::get('/cart', function(){
     return view('cart');
 });
+
+Route::get('/newest', [ProjectController::class,'newest']);
+
+Route::get('/lowest_price', [ProjectController::class,'lowest']);
+
+Route::get('/highest_price', [ProjectController::class,'highest']);
+
+Route::get('/men', [ProjectController::class,'men']);
+
+Route::get('/women', [ProjectController::class,'women']);

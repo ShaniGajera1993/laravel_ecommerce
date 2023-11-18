@@ -36,4 +36,39 @@ class ProjectController extends Controller
             abort(404);
         }
     }
+
+    public function newest(){
+
+        $products = DB::table("products")->orderBy('id','desc')->paginate(9);
+
+        return view("products", ["products" => $products]);
+    }
+
+    public function lowest(){
+
+        $products = DB::table("products")->orderBy('price','asc')->paginate(9);
+
+        return view('products', ["products" => $products]);
+    }
+
+    public function highest(){
+
+        $products = DB::table("products")->orderBy('price','desc')->paginate(9);
+
+        return view('products', ["products" => $products]);
+    }
+
+    public function men(){
+
+        $products = DB::table("products")->where('type','Men')->paginate(9);
+
+        return view('products', ["products" => $products]);
+    }
+
+    public function women(){
+
+        $products = DB::table("products")->where('type','Women')->paginate(9);
+
+        return view('products', ["products" => $products]);
+    }
 }

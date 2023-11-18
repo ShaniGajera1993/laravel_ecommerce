@@ -26,101 +26,115 @@
       </div>
       <div class="col-md-8">
         <div class="contact-form">
-          <form action="cart.php" method="post" enctype="multipart-form-data">
-            <div class="table-responsive">
+          @if(Session::has('cart') && count(Session::get('cart')) > 0)
+          <div class="table-responsive">
 
-              <table class="table">
+            <table class="table">
 
-                <thead>
+              <thead>
 
-                  <tr>
-                    <th></th>
-                    <th colspan="2">Product</th>
+                <tr>
+                  <th></th>
+                  <th colspan="2">Product</th>
 
-                    <th>Quantity</th>
+                  <th>Quantity</th>
 
-                    <th>Price</th>
+                  <th>Price</th>
 
-                    <th colspan="1"> Sub Total </th>
+                  <th colspan="1"> Sub Total </th>
 
-                  </tr>
+                </tr>
 
-                </thead>
+              </thead>
 
-                <tbody>
+              <tbody>
 
-                  <tr>
+                @if(Session::has('cart'))
 
-                    <td>
-                      <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                    </td>
-                    <td>
+                @foreach(Session::get('cart') as $id => $product)
+                <tr>
 
-                      #
+                  <td>
+                    <form action="{{ route('remove_from_cart') }}" method="post">
+                      @csrf
+                      <input type="hidden" name="id" value="{{$product['id']}}" />
+                      <button type="submit" name="remove"
+                        style="background: none; border: none; padding: 0; cursor: pointer;">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </button>
+                    </form>
+                  </td>
+                  <td>
+                    <img height="100" width="100" src="{{ asset('images/'.$product['image']) }}">
+                  </td>
 
-                    </td>
+                  <td>
 
-                    <td>
+                    <a href="#">
+                      {{ $product['name'] }}
+                    </a>
 
-                      <a href="#">
-                        #
-                      </a>
+                  </td>
 
-                    </td>
+                  <td>
+                    <form action="{{ route('edit_product_quantity') }}" method="post">
+                      @csrf
+                      <input type="hidden" name="id" value="{{$product['id']}}" />
+                      <input type="number" name="quantity" value="{{ $product['quantity'] }}" class="quantity form-control" min="1" />
+                    </form>
+                  </td>
 
-                    <td>
-                      <input type="text" name="quantity" class="quantity form-control">
-                    </td>
+                  <td>
 
-                    <td>
+                    ${{ $product['price'] }}
+                  </td>
 
-                      #
+                  <td>
 
-                    </td>
+                    ${{ number_format($product['price'] * $product['quantity'], 2) }}
 
-                    <td>
+                  </td>
 
-                      #
-
-                    </td>
-
-                  </tr>
+                </tr>
+                @endforeach
+                @endif
 
 
+              </tbody>
 
-                </tbody>
+              <tfoot>
+                @if(Session::has('total'))
+                <tr>
 
-                <tfoot>
+                  <th colspan="5"> Total </th>
 
-                  <tr>
+                  <th colspan="2">
+                    ${{number_format(Session::get('total'),2)}}
+                  </th>
 
-                    <th colspan="5"> Total </th>
+                </tr>
+                @endif
+              </tfoot>
 
-                    <th colspan="2">
-                      #
-                    </th>
+            </table>
 
-                  </tr>
-
-                </tfoot>
-
-              </table>
-
-              <div class="form-inline pull-right">
-
-              </div>
+            <div class="form-inline pull-right">
 
             </div>
 
+          </div>
 
-            <div class="clearfix">
-              <a href="/products" style="color:white" type="button" class="filled-button pull-left">Continue Shopping</a>
-              <a style="color:white" type="submit" class="filled-button pull-right">Checkout</a>
-            </div>
-          </form>
+
+          <div class="clearfix">
+            <a href="/products" style="color:white" type="button" class="filled-button pull-left">Continue
+              Shopping</a>
+            <a style="color:white" type="submit" class="filled-button pull-right">Checkout</a>
+          </div>
+          @else
+          <center><h6>No items in the cart</h6></center>
+          @endif
         </div>
       </div>
     </div>
   </div>
-
   @endsection

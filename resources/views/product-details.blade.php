@@ -47,7 +47,6 @@
           </div>
 
           <div class="col-md-8 col-xs-12">
-            <form action="#" method="post" class="form">
               <h2>{{ $products -> name }}</h2>
 
               <br>
@@ -70,22 +69,22 @@
 
               <div class="row">
                 <div class="col-sm-8">
-                  <label class="control-label">Quantity</label>
-
                   <div class="row">
                     <div class="col-sm-6">
-                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="1">
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                      <form action="{{ route('add_to_cart') }}" method="post" class="form">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $products -> id }}"/>
+                        <input type="hidden" name="name" value="{{ $products -> name }}"/>
+                        <input type="hidden" name="image" value="{{ $products -> image }}"/>
+                        <input type="hidden" name="price" value="{{ $products -> price }}"/>
+                        <input type="hidden" name="sale_price" value="{{ $products -> sale_price }}"/>
+                        <input type="hidden" name="quantity" value="1"/>
+                        <button type="submit" name="add_to_cart" class="filled-button">Add to Cart</button>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
-            </form>
           </div>
         </div>
       </div>

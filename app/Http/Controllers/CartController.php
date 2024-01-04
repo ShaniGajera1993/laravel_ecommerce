@@ -14,82 +14,38 @@ class CartController extends Controller
 
     public function add_to_cart(Request $request)
     {
-
-        if ($request->session()->has('cart')) {
-
-            $cart = $request->session()->get('cart');
-
-            $product_array_id = array_column($cart, 'id');
-            $id = $request->input('id');
-
-            if (!in_array($id, $product_array_id)) {
-
-                $cart = $request->session()->get('cart');
-
-                $id = $request->input('id');
-                $name = $request->input('name');
-                $image = $request->input('image');
-                $price = $request->input('price');
-                $sale_price = $request->input('sale_price');
-                $quantity = $request->input('quantity');
-
-                if ($sale_price != null) {
-                    $p_price = $sale_price;
-                } else {
-                    $p_price = $price;
-                }
-                $product_array = array(
-                    'id' => $id,
-                    'name' => $name,
-                    'image' => $image,
-                    'price' => $p_price,
-                    'quantity' => $quantity
-                );
-
-                $cart[$id] = $product_array;
-                $request->session()->put('cart', $cart);
-
-            } else {
-                echo "<script>alert('Product is already in the cart')</script>";
-            }
-
-            $this->cartTotal($request);
-
-            return view('cart');
-
+        $cart = $request->session()->get('cart', []);
+    
+        $id = $request->input('id');
+        $name = $request->input('name');
+        $image = $request->input('image');
+        $price = $request->input('price');
+        $sale_price = $request->input('sale_price');
+        $quantity = $request->input('quantity');
+    
+        $p_price = $sale_price ?? $price;
+    
+        if (array_key_exists($id, $cart)) {
+            $cart[$id]['quantity'] += $quantity;
         } else {
-
-            $cart = $request->session()->get('cart');
-
-            $id = $request->input('id');
-            $name = $request->input('name');
-            $image = $request->input('image');
-            $price = $request->input('price');
-            $sale_price = $request->input('sale_price');
-            $quantity = $request->input('quantity');
-
-            if ($sale_price != null ) {
-                $p_price = $sale_price;
-            } else {
-                $p_price = $price;
-            }
-            $product_array = array(
+            
+            $product_array = [
                 'id' => $id,
                 'name' => $name,
                 'image' => $image,
                 'price' => $p_price,
-                'quantity' => $quantity
-            );
-
+                'quantity' => $quantity,
+            ];
+    
             $cart[$id] = $product_array;
-            $request->session()->put('cart', $cart);
-
-            $this->cartTotal($request);
-            
-            return view('cart');
         }
+    
+        $request->session()->put('cart', $cart);
+    
+        $this->cartTotal($request);
+    
+        return view('cart');
     }
-
     public function cartTotal(Request $request){
 
         $total_price = 0;

@@ -70,9 +70,7 @@
 
                   <td>
 
-                    <a href="#">
                       {{ $product['name'] }}
-                    </a>
 
                   </td>
 
@@ -128,7 +126,7 @@
           <div class="clearfix">
             <a href="/products" style="color:white" type="button" class="filled-button pull-left">Continue
               Shopping</a>
-            <a style="color:white" type="submit" class="filled-button pull-right">Checkout</a>
+            <a href="/checkout" style="color:white" type="submit" class="filled-button pull-right">Checkout</a>
           </div>
           @else
           <center><h6>No items in the cart</h6></center>

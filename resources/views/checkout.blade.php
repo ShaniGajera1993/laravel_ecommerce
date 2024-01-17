@@ -17,65 +17,21 @@
     <div class="products call-to-action">
       <div class="container">
         <ul class="list-group list-group-flush">
+
+        @if(Session::has('total'))
           <li class="list-group-item">
-            <div class="row">
-                  <div class="col-6">
-                       <em>Sub-total</em>
-                  </div>
-                  
-                  <div class="col-6 text-right">
-                       <strong>$ 128.00</strong>
-                  </div>
-             </div>
+               <div class="row">
+                    <div class="col-6">
+                         <em>Total Amount</em>
+                    </div>
+
+                    <div class="col-6 text-right">
+                         <strong>${{number_format(Session::get('total'),2)}}</strong>
+                    </div>
+               </div>
           </li>
+          @endif
           
-          <li class="list-group-item">
-               <div class="row">
-                    <div class="col-6">
-                         <em>Extra</em>
-                    </div>
-
-                    <div class="col-6 text-right">
-                         <strong>$ 0.00</strong>
-                    </div>
-               </div>
-          </li>
-
-          <li class="list-group-item">
-               <div class="row">
-                    <div class="col-6">
-                         <em>Tax</em>
-                    </div>
-
-                    <div class="col-6 text-right">
-                         <strong>$ 10.00</strong>
-                    </div>
-               </div>
-          </li>
-
-          <li class="list-group-item">
-               <div class="row">
-                    <div class="col-6">
-                         <em>Total</em>
-                    </div>
-
-                    <div class="col-6 text-right">
-                         <strong>$ 138.00</strong>
-                    </div>
-               </div>
-          </li>
-
-          <li class="list-group-item">
-               <div class="row">
-                    <div class="col-6">
-                         <em>Deposit payment required</em>
-                    </div>
-
-                    <div class="col-6 text-right">
-                         <strong>$ 20.00</strong>
-                    </div>
-               </div>
-          </li>
         </ul>
 
         <br>
@@ -84,93 +40,67 @@
           <div class="contact-form">
               <form action="#">
                    <div class="row">
-                        <div class="col-sm-6 col-xs-12">
-                             <div class="form-group">
-                                  <label class="control-label">Title:</label>
-                                  <select class="form-control" data-msg-required="This field is required.">
-                                       <option value="">-- Choose --</option>
-                                       <option value="dr">Dr.</option>
-                                       <option value="miss">Miss</option>
-                                       <option value="mr">Mr.</option>
-                                       <option value="mrs">Mrs.</option>
-                                       <option value="ms">Ms.</option>
-                                       <option value="other">Other</option>
-                                       <option value="prof">Prof.</option>
-                                       <option value="rev">Rev.</option>
-                                  </select>
-                             </div>
-                        </div>
-                        <div class="col-sm-6 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Name:</label>
                                   <input type="text" class="form-control">
                              </div>
                         </div>
-                   </div>
-                   <div class="row">
-                        <div class="col-sm-6 col-xs-12">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Email:</label>
                                   <input type="text" class="form-control">
                              </div>
                         </div>
-                        <div class="col-sm-6 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Phone:</label>
                                   <input type="text" class="form-control">
                              </div>
                         </div>
-                   </div>
-                   <div class="row">
-                        <div class="col-sm-6 col-xs-12">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
-                                  <label class="control-label">Address 1:</label>
+                                  <label class="control-label">Address:</label>
                                   <input type="text" class="form-control">
                              </div>
                         </div>
-                        <div class="col-sm-6 col-xs-12">
-                             <div class="form-group">
-                                  <label class="control-label">Address 2:</label>
-                                  <input type="text" class="form-control">
-                             </div>
-                        </div>
-                   </div>
-                   <div class="row">
-                        <div class="col-sm-6 col-xs-12">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">City:</label>
                                   <input type="text" class="form-control">
                              </div>
                         </div>
-                        <div class="col-sm-6 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">State:</label>
                                   <input type="text" class="form-control">
                              </div>
                         </div>
-                   </div>
-                   <div class="row">
-                        <div class="col-sm-6 col-xs-12">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Zip:</label>
                                   <input type="text" class="form-control">
                              </div>
                         </div>
-                        <div class="col-sm-6 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Country:</label>
                                   <select class="form-control">
-                                       <option value="">-- Choose --</option>
-                                       <option value="">-- Choose --</option>
-                                       <option value="">-- Choose --</option>
-                                       <option value="">-- Choose --</option>
+                                        <option value="">-- Choose --</option>
+                                       <option value="">India</option>
+                                       <option value="">Germany</option>
+                                       <option value="">UK</option>
+                                       <option value="">US</option>
                                   </select>
                              </div>
                         </div>
-                   </div>
 
-                   <div class="row">
-                        <div class="col-sm-6 col-xs-12">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Payment method</label>
 
@@ -183,21 +113,7 @@
                              </div>
                         </div>
 
-                        <div class="col-sm-6 col-xs-12">
-                             <div class="form-group">
-                                  <label class="control-label">Captcha</label>
-                                  <input type="text" class="form-control">
-                             </div>
-                        </div>
-                   </div>
-
-                   <div class="form-group">
-                        <label class="control-label">
-                             <input type="checkbox">
-
-                             I agree with the <a href="terms" target="_blank">Terms &amp; Conditions</a>
-                        </label>
-                   </div>
+               </div>
 
                    <div class="clearfix">
                         <button type="button" class="filled-button pull-left">Back</button>

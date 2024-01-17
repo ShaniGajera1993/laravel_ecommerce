@@ -44,7 +44,7 @@ class CartController extends Controller
     
         $this->cartTotal($request);
     
-        return view('cart');
+        return redirect('/cart');
     }
     public function cartTotal(Request $request){
 
@@ -83,7 +83,7 @@ class CartController extends Controller
             $this->cartTotal($request);
         }
 
-        return view('cart');
+        return redirect('/cart');
     }
 
     public function edit_product_quantity(Request $request){
@@ -104,6 +104,6 @@ class CartController extends Controller
             $this->cartTotal($request);
         }
 
-        return view('cart');
+        return redirect('/cart');
     }
 }

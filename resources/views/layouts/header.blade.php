@@ -64,7 +64,18 @@
                 <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
 
                 <li class="nav-item"><a class="nav-link" href="/checkout">Checkout</a></li>
+
+                @if(Auth::check())
+
+                <form id="logoutForm" method="post" action="{{ route('auth_logout') }}">
+                  @csrf
+                </form>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="document.getElementById('logoutForm').submit(); return false;">Logout</a></li>
+                
+
+                @else
                 <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                @endif
                 <li class="nav-item"><a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
             </ul>
           </div>

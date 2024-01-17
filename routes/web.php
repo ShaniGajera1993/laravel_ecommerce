@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
@@ -37,12 +38,26 @@ Route::get('/contact', function () {
 
 Route::get('/product-details/{id}', [ProjectController::class,'productdetails'])->name('product.details');
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/login', [AuthController::class, 'login']);
+
+Route::post('/auth_login', [AuthController::class, 'authLogin'])->name('auth_login');
+
+Route::get('/auth_login', function(){
+    return redirect('/');
 });
 
-Route::get('/register', function () {
-    return view('register');
+Route::post('/auth-logout', [AuthController::class, 'authLogout'])->name('auth_logout');
+
+Route::get('/auth_logout', function(){
+    return redirect('/');
+});
+
+Route::get('/register', [AuthController::class, 'register']);
+
+Route::post('/auth-register', [AuthController::class, 'authRegister'])->name('auth_register');
+
+Route::get('/auth-register', function(){
+    return redirect('/');
 });
 
 Route::get('/cart', [CartController::class, 'cart']);
@@ -60,7 +75,7 @@ Route::get('/women', [ProjectController::class,'women']);
 Route::post('/add_to_cart', [CartController::class,'add_to_cart'])->name('add_to_cart');
 
 Route::get('/add_to_cart', function(){
-    return redirect('');
+    return redirect('/');
 });
 
 Route::post('/remove_from_cart', [CartController::class,'remove_from_cart'])->name('remove_from_cart');

@@ -126,6 +126,7 @@
           <div class="clearfix">
             <a href="/products" style="color:white" type="button" class="filled-button pull-left">Continue
               Shopping</a>
+  
             <a href="/checkout" style="color:white" type="submit" class="filled-button pull-right">Checkout</a>
           </div>
           @else

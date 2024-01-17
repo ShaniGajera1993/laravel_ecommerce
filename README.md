@@ -14,6 +14,7 @@ This project is a web-based application that combines a robust backend with Lara
 -   Laravel <= 10.10
 -   PHP <= 8.1
 -   Composer Version 2.2
+-   Apache (XAMPP)
 
 ## Installation
 

@@ -63,7 +63,7 @@
                                             return actions.order.create({
                                                 purchase_units: [{
                                                     amount: {
-                                                        value: '10.00' // Set your transaction amount here
+                                                        value: '{{ Session::get('total')}}' // Set your transaction amount here
                                                     }
                                                 }]
                                             });
@@ -72,7 +72,9 @@
                                             // Capture the funds from the transaction
                                             return actions.order.capture().then(function (details) {
                                                 // Display a thank you message to the buyer
-                                                alert('Transaction completed by ' + details.payer.name.given_name);
+
+                                                var transaction_id = data.orderID;
+                                                window.location.href = '/verify_payment/'+transaction_id;
                                             });
                                         }
                                     }).render('#paypal-button-container'); // Specify the container where you want to render the PayPal button

@@ -27,15 +27,24 @@
                         @csrf
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
+                                @if ($errors->has('loginError'))
+                                    <center><span class="text-danger">{{ $errors->first('loginError') }}</span><br><br></center>
+                                @endif
                                 <fieldset>
                                     <input name="email" type="text" class="form-control" id="email"
-                                        placeholder="E-Mail Address" required="">
+                                        placeholder="E-Mail Address">
+                                        @if ($errors->has('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span><br><br>
+                                        @endif
                                 </fieldset>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
                                     <input name="password" type="text" class="form-control" id="password"
-                                        placeholder="Password" required="">
+                                        placeholder="Password">
+                                        @if ($errors->has('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span><br><br>
+                                        @endif
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
@@ -45,7 +54,7 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
                                 <fieldset>
-                                    <p>Don't have an account? <a href="register">Sign Up</a></p>
+                                    <p>Don't have an account? <a style="color:black" href="register">Sign Up</a></p>
                                 </fieldset>
                             </div>
                         </div>

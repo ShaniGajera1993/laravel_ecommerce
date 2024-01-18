@@ -63,8 +63,6 @@
 
                 <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="/checkout">Checkout</a></li>
-
                 @if(Auth::check())
 
                 <form id="logoutForm" method="post" action="{{ route('auth_logout') }}">

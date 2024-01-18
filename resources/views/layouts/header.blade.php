@@ -64,12 +64,17 @@
                 <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
 
                 @if(Auth::check())
-
-                <form id="logoutForm" method="post" action="{{ route('auth_logout') }}">
-                  @csrf
-                </form>
-                <li class="nav-item"><a href="#" class="nav-link" onclick="document.getElementById('logoutForm').submit(); return false;">Logout</a></li>
-                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">My Order</a>
+                      <form id="logoutForm" method="post" action="{{ route('auth_logout') }}">
+                        @csrf
+                      </form>
+                      <a href="#" class="dropdown-item" onclick="document.getElementById('logoutForm').submit(); return false;">Logout</a>
+                    </div>
+                </li>
 
                 @else
                 <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>

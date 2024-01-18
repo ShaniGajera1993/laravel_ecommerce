@@ -96,3 +96,9 @@ Route::post('/edit_product_quantity', [CartController::class,'edit_product_quant
 Route::get('/edit_product_quantity', function(){
     return redirect('/');
 });
+
+Route::get('/verify_payment/{transaction_id}', [OrderController::class, 'verifyPayment'])->name('verify_payment');
+
+Route::get('/complete_payment', [OrderController::class, 'completePayment'])->name('complete_payment');
+
+Route::get('/thank-you', [OrderController::class, 'thankYou'])->name('thank_you');

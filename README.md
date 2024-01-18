@@ -1,14 +1,14 @@
 ## Laravel Ecommerce Project
 
-This project is a web-based application that combines a robust backend with Laravel and MySQL. The frontend is powered by Blade Templates, HTML, CSS (Bootstrap), and JavaScript. I used phpjabbers web template and changed many frontend things in it.
+This project is a web-based application that combines a robust backend with Laravel and MySQL. The frontend is powered by Blade Templates, HTML, CSS (Bootstrap), and JavaScript. I used the phpjabbers web template and changed many frontend things in it.
 
 ## Features
 - Shopping Cart in a Responsive Layout
 - Mobile-Friendly Website
 - 3 Step Checkout Process
+- Payment Gateway Integration
 - Email Notifications - pending
 - Contact-Us form - pending
-- Payment Gateway Integration - pending
 
 ## Requirements 
 -   Laravel <= 10.10
@@ -31,7 +31,7 @@ This project is a web-based application that combines a robust backend with Lara
    cp .env.example .env
    ```
 
-4. Create Database then migrate and seed
+4. Create a Database then migrate and seed
    ```sh
    php artisan migrate --seed
 
@@ -42,17 +42,18 @@ This project is a web-based application that combines a robust backend with Lara
 
 ## Screenshots
 
-![home](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/a657c053-5f95-4b61-bcab-616322ce20a9)
+![home](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/564fb6ad-9d64-484c-925a-f743ebec30d3)
 
-![Product](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/36e83eb7-1855-43d3-891f-78e8a7ea8ae7)
+![products](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/f7f5d7de-5a6b-4a4b-970b-baab0e0fffc8)
 
-![product-details](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/d491620b-7a89-4c71-8eed-4fd1bbffa40b)
+![product-details](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/f4b085a7-7d8a-48c5-84aa-9f8a5fa30057)
 
-![cart](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/dd827658-d489-47a4-825e-6064f6eab7ed)
+![cart](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/c656a628-e11b-4aa3-9510-2da71ca78e4b)
 
-![checkout](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/4aeb0c89-44d9-4f86-928a-b4bbcc316a45)
+![checkout](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/42b1fc47-dcd6-4979-95f1-d810ec4f1550)
 
+![paypal-payment](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/b71015c7-e722-4f08-aec2-ddbaeb1a5a10)
 
+![payment](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/e8825550-5918-4690-a544-e2c336b2c558)
 
-
-
+![thank-you](https://github.com/ShaniGajera1993/laravel_ecommerce/assets/90701592/54b50dad-c650-4d83-92f9-1bf3e4458203)

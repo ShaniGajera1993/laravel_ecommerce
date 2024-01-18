@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +27,6 @@ Route::get('/about-us', function () {
 
 Route::get('/terms', function () {
     return view('terms');
-});
-
-Route::get('/checkout', function () {
-    return view('checkout');
 });
 
 Route::get('/contact', function () {
@@ -61,6 +58,16 @@ Route::get('/auth-register', function(){
 });
 
 Route::get('/cart', [CartController::class, 'cart']);
+
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+
+Route::get('/payment', [OrderController::class, 'payment'])->name('payment');
+
+Route::post('/place_order', [OrderController::class, 'placeOrder'])->name('place_order');
+
+Route::get('/place_order', function(){
+    return redirect('/');
+});
 
 Route::get('/newest', [ProjectController::class,'newest']);
 

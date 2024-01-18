@@ -38,85 +38,46 @@
         
         <div class="inner-content">
           <div class="contact-form">
-              <form action="#">
+              <form action="{{ route('place_order') }}" method="post">
+               @csrf
                    <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Name:</label>
-                                  <input type="text" class="form-control">
+                                  <input type="text" name="name" id="name" class="form-control">
                              </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Email:</label>
-                                  <input type="text" class="form-control">
+                                  <input type="text" name="email" id="email" class="form-control">
                              </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Phone:</label>
-                                  <input type="text" class="form-control">
+                                  <input type="text" name="phone" id="phone" class="form-control">
                              </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">Address:</label>
-                                  <input type="text" class="form-control">
+                                  <input type="text" name="address" id="address" class="form-control">
                              </div>
                         </div>
 
                         <div class="col-lg-12 col-md-12 col-sm-12">
                              <div class="form-group">
                                   <label class="control-label">City:</label>
-                                  <input type="text" class="form-control">
+                                  <input type="text" name="city" id="city" class="form-control">
                              </div>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                             <div class="form-group">
-                                  <label class="control-label">State:</label>
-                                  <input type="text" class="form-control">
-                             </div>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                             <div class="form-group">
-                                  <label class="control-label">Zip:</label>
-                                  <input type="text" class="form-control">
-                             </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                             <div class="form-group">
-                                  <label class="control-label">Country:</label>
-                                  <select class="form-control">
-                                        <option value="">-- Choose --</option>
-                                       <option value="">India</option>
-                                       <option value="">Germany</option>
-                                       <option value="">UK</option>
-                                       <option value="">US</option>
-                                  </select>
-                             </div>
-                        </div>
-
-
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                             <div class="form-group">
-                                  <label class="control-label">Payment method</label>
-
-                                  <select class="form-control">
-                                       <option value="">-- Choose --</option>
-                                       <option value="bank">Bank account</option>
-                                       <option value="cash">Cash</option>
-                                       <option value="paypal">PayPal</option>
-                                  </select>
-                             </div>
-                        </div>
-
                </div>
 
                    <div class="clearfix">
-                        <button type="button" class="filled-button pull-left">Back</button>
+                        <a href="/cart" type="button" class="filled-button pull-left">Back</a>
                         
                         <button type="submit" class="filled-button pull-right">Finish</button>
                    </div>

@@ -8,8 +8,11 @@ class CartController extends Controller
 {
     public function cart()
     {
-
         return view('cart');
+    }
+
+    public function checkout(){
+        return view('checkout');
     }
 
     public function add_to_cart(Request $request)

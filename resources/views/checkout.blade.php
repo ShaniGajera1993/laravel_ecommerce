@@ -82,7 +82,7 @@
                          <div class="clearfix">
                               <a href="/cart" type="button" class="filled-button pull-left">Back</a>
 
-                              <button type="submit" class="filled-button pull-right">Finish</button>
+                              <button type="submit" class="filled-button pull-right">Payment</button>
                          </div>
                     </form>
                </div>

@@ -127,11 +127,16 @@
             <a href="/products" style="color:white" type="button" class="filled-button pull-left">Continue
               Shopping</a>
 
+              @if(Auth::check())
+
             <form id="checkout" method="get" action="{{ route('checkout') }}">
               @csrf
             </form>
   
             <a href="#" onclick="document.getElementById('checkout').submit(); return false;" style="color:white" type="submit" class="filled-button pull-right">Checkout</a>
+            @else
+            <a href="/login" style="color:white" type="submit" class="filled-button pull-right">Checkout</a>
+            @endif
           </div>
           @else
           <center><h6>No items in the cart</h6></center>

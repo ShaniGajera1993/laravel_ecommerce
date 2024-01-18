@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
                                 <fieldset>
-                                    <p>Already have an account? <a href="login">Login</a></p>
+                                    <p>Already have an account? <a style="color:black" href="login">Login</a></p>
                                 </fieldset>
                             </div>
                         </div>

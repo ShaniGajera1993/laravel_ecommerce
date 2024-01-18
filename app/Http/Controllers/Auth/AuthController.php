@@ -50,10 +50,20 @@ class AuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+
+            $user = Auth::user();
+    
+            $request->session()->put('name', $user->name);
+            $request->session()->put('email', $user->email);
+    
+            if ($request->session()->has('cart')) {
+                return redirect()->intended('/cart');
+            }
+    
             return redirect()->intended('/');
         }
 
-        return redirect('/login');
+        return redirect('/login')->withErrors(['loginError' => 'Invalid email or password.']);
     }
 
     public function authLogout() {

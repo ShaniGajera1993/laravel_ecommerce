@@ -7,8 +7,8 @@ This project is a web-based application that combines a robust backend with Lara
 - Mobile-Friendly Website
 - 3 Step Checkout Process
 - Payment Gateway Integration
-- Email Notifications - pending
-- Contact-Us form - pending
+- Contact-Us Form with SMTP Email Notification
+- Order Confirmation Email - (Pending)
 
 ## Requirements 
 -   Laravel <= 10.10

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SmtpController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,11 @@ Route::get('/terms', function () {
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::post('/sendmail', [SmtpController::class,'sendMail'])->name('sendmail');
+Route::get('/sendmail', function(){
+    return redirect('/');
 });
 
 Route::get('/product-details/{id}', [ProjectController::class,'productdetails'])->name('product.details');

@@ -55,26 +55,45 @@
           </div>
           <div class="col-md-8">
             <div class="contact-form">
-              <form id="contact" action="" method="post">
+              <form id="contact" action="{{ route('sendmail') }}" method="post">
+                @csrf
+                @if (Session::has('success'))
+                  <center><span class="text-danger">{{ Session::get('success') }}</span><br><br></center>
+                @endif
+                @if (Session::has('error'))
+                  <center><span class="text-danger">{{ Session::get('error') }}</span><br><br></center>
+                @endif
                 <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name">
+                      @if ($errors->has('name'))
+                        <span class="text-danger">{{ $errors->first('name') }}</span><br><br>
+                      @endif
                     </fieldset>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                      <input name="contactemail" type="text" class="form-control" id="contactemail" placeholder="E-Mail Address">
+                      @if ($errors->has('email'))
+                        <span class="text-danger">{{ $errors->first('email') }}</span><br><br>
+                      @endif
                     </fieldset>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="">
+                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
+                      @if ($errors->has('subject'))
+                        <span class="text-danger">{{ $errors->first('subject') }}</span><br><br>
+                      @endif
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                      <textarea name="body" rows="6" class="form-control" id="body" placeholder="Your Message"></textarea>
+                      @if ($errors->has('body'))
+                        <span class="text-danger">{{ $errors->first('body') }}</span><br><br>
+                      @endif
                     </fieldset>
                   </div>
                   <div class="col-lg-12">

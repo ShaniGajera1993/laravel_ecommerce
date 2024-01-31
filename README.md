@@ -8,7 +8,7 @@ This project is a web-based application that combines a robust backend with Lara
 - 3 Step Checkout Process
 - Payment Gateway Integration
 - Contact-Us Form with SMTP Email Notification
-- Order Confirmation Email - (Pending)
+- Order Confirmation Email
 
 ## Requirements 
 -   Laravel <= 10.10

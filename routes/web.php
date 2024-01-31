@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\PaymentEmail;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;

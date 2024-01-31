@@ -37,6 +37,9 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
+        $user = Auth::user();
+        $request->session()->put('name', $user->name);
+        $request->session()->put('email', $user->email);
         $request->session()->regenerate();
         return redirect('/');
     }

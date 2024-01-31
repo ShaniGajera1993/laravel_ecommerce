@@ -18,7 +18,7 @@
 <div class="products call-to-action">
     <div class="container">
         @if(Session::has('order_id') && Session::get('order_id') != null)
-            @if(Session::has('total') && Session::get('total') != null)
+        @if(Session::has('total') && Session::get('total') != null)
         <ul class="list-group list-group-flush">
 
             @if(Session::has('total'))
@@ -74,7 +74,8 @@
                                                 // Display a thank you message to the buyer
 
                                                 var transaction_id = data.orderID;
-                                                window.location.href = '/verify_payment/'+transaction_id;
+
+                                                window.location.href = '/verify_payment/' + transaction_id;
                                             });
                                         }
                                     }).render('#paypal-button-container'); // Specify the container where you want to render the PayPal button

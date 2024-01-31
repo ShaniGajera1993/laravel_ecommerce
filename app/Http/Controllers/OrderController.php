@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,8 +54,6 @@ class OrderController extends Controller
                 ]);
             }
 
-            //store order id in session
-
             $request->session()->put('order_id', $orders_id);
 
             return redirect('/payment');
@@ -79,12 +78,24 @@ class OrderController extends Controller
     public function completePayment(Request $request)
     {
 
+        $data = [
+            'to' => 'dealbuddy1353@gmail.com',
+            'email' => '',
+            'transaction_id' => '',
+            'total_price' => 0,
+            'products' => [],
+        ];
+
         if ($request->session()->has('order_id') && $request->session()->has('transaction_id')) {
 
             $order_id = $request->session()->get('order_id');
             $transaction_id = $request->session()->get('transaction_id');
             $order_status = "paid";
             $payment_date = date('Y-m-d');
+
+            $email = $request->session()->get('email');
+            $cost = $request->session()->get('total');
+            $cart = $request->session()->get('cart');
 
             $changesDB = DB::table('orders')
                 ->where('id', $order_id)
@@ -96,7 +107,37 @@ class OrderController extends Controller
                 'date' => $payment_date
             ]);
 
-            $request->session()->flush();
+            $data['email'] = $email;
+            $data['transaction_id'] = $transaction_id;
+            $data['total_price'] = $cost;
+
+            print_r($data);
+
+            foreach ($cart as $id => $product) {
+                $product = $cart[$id];
+                $product_name = $product['name'];
+                $product_price = $product['price'];
+                $product_image = $product['image'];
+                $product_quantity = $product['quantity'];
+
+                $data['products'][] = [
+                    'name' => $product_name,
+                    'price' => $product_price,
+                    'image' => $product_image,
+                    'quantity' => $product_quantity
+                ];
+                var_dump($product_name, $product_price);
+            }
+
+            $subject = "Your order is confirmed";
+
+            Mail::send('paymentemail', ['data' => $data], function ($message) use ($data, $subject) {
+                $message->to($data['email'])
+                    ->from($data['to'])
+                    ->subject($subject);
+            });
+
+            $request->session()->forget('cart');
 
             return redirect('/thank-you')->with('order_id', $order_id);
 
@@ -108,7 +149,8 @@ class OrderController extends Controller
 
     }
 
-    public function thankYou(){
+    public function thankYou()
+    {
         return view('thank-you');
     }
 }

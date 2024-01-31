@@ -68,7 +68,7 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
                     
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">My Order</a>
+                      <a class="dropdown-item" href="/myorder">My Order</a>
                       <form id="logoutForm" method="post" action="{{ route('auth_logout') }}">
                         @csrf
                       </form>

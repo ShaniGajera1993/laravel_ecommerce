@@ -31,11 +31,16 @@ This project is a web-based application that combines a robust backend with Lara
    cp .env.example .env
    ```
 
-4. Create a Database then migrate and seed
+4. Generate an application key
+   ```sh
+   php artisan key:generate
+   ```
+
+5. Create a Database then migrate and seed
    ```sh
    php artisan migrate --seed
 
-5. Serve the application
+6. Serve the application
    ```sh
    php artisan serve
    ```

@@ -35,6 +35,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/myorder', [ProjectController::class, 'getOrderHistory']);
+ 
 Route::post('/sendmail', [SmtpController::class,'sendMail'])->name('sendmail');
 Route::get('/sendmail', function(){
     return redirect('/');

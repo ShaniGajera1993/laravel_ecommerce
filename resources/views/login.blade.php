@@ -48,9 +48,18 @@
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="filled-button">login</button>
-                                </fieldset>
+                                <div class="row">
+                                    <div class="col">
+                                    <fieldset>
+                                    <button type="submit" id="form-submit" class="filled-button pull-left">login</button>
+                                    </fieldset>
+                                    </div>
+                                    
+                                    <div class="col">
+                                    <a href="reset-password" style="color:black" type="submit" class="pull-right center-block">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
                                 <fieldset>
